@@ -9,13 +9,12 @@
 # соответствующее сообщение и завершать скрипт.
 
 class TrafficLight:
-    def __init__(self, color):
-        self._color = color
+    _color = {"Красный": 7, "Желтый": 2, "Зеленый": 7}
     def running(self):
         for el in self._color.items():
             print(el)
 
-obj = TrafficLight(color = {"Красный": 7, "Желтый": 2, "Зеленый": 7})
+obj = TrafficLight()
 obj.running()
 
 

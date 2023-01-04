@@ -8,18 +8,27 @@
 # Задачу можно усложнить, реализовав проверку порядка режимов, и при его нарушении выводить
 # соответствующее сообщение и завершать скрипт.
 
+import time
+
+
 class TrafficLight:
-    _color = {"Красный": 7, "Желтый": 2, "Зеленый": 7}
+    _color = ['red', 'yellow', 'green']
+
     def running(self):
-        for el in self._color.items():
-            print(el)
+        def get_time(color_item):
+            if color_item == 'red':
+                print('red')
+                time.sleep(7)
+            elif color_item == 'yellow':
+                print('yellow')
+                time.sleep(2)
+            else:
+                print('green')
+                time.sleep(10)
+
+        for el in self._color:
+            get_time(el)
+
 
 obj = TrafficLight()
 obj.running()
-
-
-
-
-
-
-

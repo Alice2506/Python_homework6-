@@ -12,7 +12,7 @@ import time
 
 
 class TrafficLight:
-    _color = ['red', 'yellow', 'green']
+    __color = ['red', 'yellow', 'green']
 
     def running(self):
         def get_time(color_item):
@@ -26,7 +26,7 @@ class TrafficLight:
                 print('green')
                 time.sleep(10)
 
-        for el in self._color:
+        for el in self.__color:
             get_time(el)
 
 

@@ -7,37 +7,37 @@
 #  Проверить работу примера на реальных данных (создать экземпляры класса Position,
 #  передать данные, проверить значения атрибутов, вызвать методы экземпляров).
 
+wage = int(input("Введите заработную плату: "))
+bonus = int(input("Введите премию: "))
+income = {"wage": wage, "bonus": bonus}
+
+
 class Worker:
-    def __init__(self, name, surname, position, _income):
+    _income = income
+
+    def __init__(self, name, surname, position):
         self.name = name
         self.surname = surname
         self.position = position
-        self._income = _income
 
-    def get_salary(self):
-        wage = int(input("Введите заработную плату: "))
-        bonus = int(input("Введите премию: "))
-        self._income = {"wage": wage, "bonus": bonus}
-        return self._income
 
-# obj = Worker("Helen", "Rowling", "manager", {"wage": 2000, "bonus": 500})
-# print(obj.surname)
-# print(obj._income)
-# obj.get_salary()
-#
+obj = Worker("Helen", "Rowling", "manager")
+print(obj.surname)
+print(obj._income)
+
+
 class Position(Worker):
-    def __init__(self, name, surname, position, _income):
-        super().__init__(name, surname, position, _income)
+    def __init__(self, name, surname, position):
+        super().__init__(name, surname, position)
 
     def get_full_name(self):
         print(f'{self.name} {self.surname}')
 
-    def get_total_income(self, _income):
-        wage = int(input("Введите заработную плату: "))
-        bonus = int(input("Введите премию: "))
-        total = self._income.get(wage)
+    def get_total_income(self):
+        total = self._income.get("wage") + self._income.get("bonus")
         print(total)
 
-obj2 = Position("Helen", "Tsoy", "manager", _income={"wage": 2000, "bonus": 500})
+
+obj2 = Position("Helen", "Tsoy", "manager")
 obj2.get_full_name()
-obj2.get_total_income({"wage": 2000, "bonus": 500})
+obj2.get_total_income()
